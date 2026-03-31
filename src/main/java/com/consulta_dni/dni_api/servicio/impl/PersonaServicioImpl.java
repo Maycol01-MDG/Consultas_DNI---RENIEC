@@ -59,7 +59,7 @@ public class PersonaServicioImpl implements PersonaServicio {
         HttpEntity<Void> entidad = new HttpEntity<>(headers);
 
         // 3. Construir la URL con el parámetro del DNI
-        String url = reniecApiUrl + "?numero=" + dni;
+        String url = reniecApiUrl + "?numero={dni}";
 
         try {
             // 4. Llamar a la API externa de RENIEC
@@ -67,7 +67,8 @@ public class PersonaServicioImpl implements PersonaServicio {
                     url,
                     HttpMethod.GET,
                     entidad,
-                    ReniecRespuestaDTO.class
+                    ReniecRespuestaDTO.class,
+                    dni // Spring Boot inyectará el DNI aquí de forma segura
             );
 
             ReniecRespuestaDTO datos = respuesta.getBody();
