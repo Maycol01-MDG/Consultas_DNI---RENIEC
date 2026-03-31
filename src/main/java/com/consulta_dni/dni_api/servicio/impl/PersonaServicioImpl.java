@@ -47,7 +47,7 @@ public class PersonaServicioImpl implements PersonaServicio {
         }
 
         if (reniecApiToken == null || reniecApiToken.isBlank()) {
-            throw new IllegalStateException("Falta configurar RENIEC_API_TOKEN para consultar RENIEC");
+            throw new IllegalStateException("Falta configurar RENIEC_TOKEN para consultar RENIEC");
         }
 
         // 2. Construir headers con el token de autorización
